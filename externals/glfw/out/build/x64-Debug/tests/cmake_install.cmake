@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Asus/Documents/Project/BGFXTest/externals/glfw/tests
+# Install script for directory: C:/Users/cleme/Documents/GitHub/BGFXTest/externals/glfw/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/Asus/Documents/Project/BGFXTest/externals/glfw/out/install/x64-Debug")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/cleme/Documents/GitHub/BGFXTest/externals/glfw/out/install/x64-Debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

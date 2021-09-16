@@ -2,11 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\externals",
-    "\\externals\\bgfx",
-    "\\externals\\bgfx\\examples",
-    "\\externals\\bgfx\\examples\\00-helloworld",
     "\\src"
   ],
-  "SelectedNode": "\\src\\Main.cpp",
   "PreviewInSolutionExplorer": false
 }
