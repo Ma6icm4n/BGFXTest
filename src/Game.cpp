@@ -14,20 +14,15 @@ bool Game::initialize() {
 }
 
 void Game::load(){
-    bgfx::VertexLayout pcvDecl;
-    pcvDecl.begin()
-        .add(bgfx::Attrib::Position, 3, bgfx::AttribType::Float)
-        .add(bgfx::Attrib::Color0, 4, bgfx::AttribType::Uint8, true)
-        .end();
-    vbh = bgfx::createVertexBuffer(bgfx::makeRef(cubeVertices, sizeof(cubeVertices)), pcvDecl);
-    ibh = bgfx::createIndexBuffer(bgfx::makeRef(cubeTriList, sizeof(cubeTriList)));
+    cube = new SimpleCube();
+    
+}
+void Game::loop(){
 
-    bgfx::ShaderHandle vsh = loadShader("vs_cubes.bin");
-    bgfx::ShaderHandle fsh = loadShader("fs_cubes.bin");
-    bgfx::ProgramHandle program = bgfx::createProgram(vsh, fsh, true);
-
-    unsigned int counter = 0;
+    
     while (true) {
+
+        time = Time::getTime();
         const bx::Vec3 at = { 0.0f, 0.0f,  0.0f };
         const bx::Vec3 eye = { 0.0f, 0.0f, -5.0f };
         float view[16];
@@ -36,29 +31,32 @@ void Game::load(){
         bx::mtxProj(proj, 60.0f, float(WNDW_WIDTH) / float(WNDW_HEIGHT), 0.1f, 100.0f, bgfx::getCaps()->homogeneousDepth);
         bgfx::setViewTransform(0, view, proj);
 
-        float mtx[16];
-        bx::mtxRotateXY(mtx, counter * 0.01f, counter * 0.01f);
-        bgfx::setTransform(mtx);
-
-        bgfx::setVertexBuffer(0, vbh);
-        bgfx::setIndexBuffer(ibh);
-
-        bgfx::submit(0, program);
-        bgfx::frame();
-        counter++;
+        cube->update();
     }
 }
-void Game::loop(){}
-void Game::unload(){}
+
+void Game::addActor(Actor* actor) {
+    actors.push_back(actor);
+}
+void Game::removeActor(Actor* actor) {
+    auto iter = std::find(begin(waitingActors), end(waitingActors), actor);
+    if(iter != end(waitingActors)) {
+        std::iter_swap(iter, end(waitingActors) - 1);
+        waitingActors.pop_back();
+    }
+
+    auto iter = std::find(begin(actors), end(actors), actor);
+    if(iter != end(actors)) {
+        std::iter_swap(iter, end(actors) - 1);
+        actors.pop_back();
+    }
+}
+
+void Game::unload(){
+    actors.clear();
+}
 void Game::destroy(){
 
-    bgfx::destroy(ibh);
-    bgfx::destroy(vbh);
     bgfx::shutdown();
 	window.destroy();
 }
-
-void Game::addActor(Actor* actor){}
-void Game::removeActor(Actor* actor){}
-void Game::update(float dt){}
-void Game::render(){}

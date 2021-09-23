@@ -1,5 +1,7 @@
 #pragma once 
 #include <vector>
+
+#include "bx/math.h"
 using std::vector;
 
 class Game;
@@ -16,26 +18,32 @@ public:
 	Actor(const Actor&) = delete;
 	Actor& operator=(const Actor&) = delete;
 
+	void setPosition(float x, float y, float z);
+	void setScale(float x, float y, float z);
+	void setRotation(float x, float y, float z);
+
 	Game& getGame() const { return game; }
-	const ActorState getState() const { return state; }
+	float* getPosition() { return m_position; }
+	float* getScale() { return m_scale; }
+	float* getRotation() { return m_rotation; }
 	
-	void setPosition();
-	void setScale();
-	void setRotation();
-	void setState();
+	virtual void init();
+	virtual void update();
+	virtual void destroy();
 
-	void computeWorldTransform();
+	void addComponents(Component* component);
+	void removeComponents(Component* component);
 
-	void update(float dt);
-	void UpdateComponents(float dt);
-	virtual void updateActor(float dt);
-	void addComponent(Component* component);
-	void removeComponent(Component* component);
 
 private:
 	Game& game;
 	ActorState state;
-	bool mustRecomputeWorldTransform;
+
+	float m_position[3] = { 0, 0, 0 };
+	float m_scale[3] = { 1, 1, 1 };
+	float m_rotation[3] = { 0, 0, 0 };
 
 	vector<Component*> components;
+
+	bool isInit;
 };

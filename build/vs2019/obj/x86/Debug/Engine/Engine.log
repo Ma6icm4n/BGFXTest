@@ -1,2 +1,11 @@
-﻿  Main.cpp
-  Engine.vcxproj -> C:\Users\cleme\Documents\GitHub\BGFXTest\build\vs2019\bin\x86\Debug\Engine.exe
+﻿  Actor.cpp
+  Component.cpp
+  Game.cpp
+C:\Users\cleme\Documents\GitHub\BGFXTest\src\Game.cpp(34,26): error C2660: 'SimpleCube::update' : la fonction ne prend pas 1 arguments
+C:\Users\cleme\Documents\GitHub\BGFXTest\src\SimpleCube.h(56,7): message : voir la déclaration de 'SimpleCube::update'
+  Main.cpp
+  SimpleCube.cpp
+C:\Users\cleme\Documents\GitHub\BGFXTest\src\SimpleCube.cpp(20,36): error C2664: 'void bx::mtxRotateXY(float *,float,float)' : impossible de convertir l'argument 2 de 'time_t (__cdecl *)(time_t *const )' en 'float'
+C:\Users\cleme\Documents\GitHub\BGFXTest\src\SimpleCube.cpp(20,26): message : Le contexte ne permet pas de lever l'ambiguïté de la fonction surchargée
+C:\Users\cleme\Documents\GitHub\BGFXTest\externals\bx\include\bx\math.h(565,7): message : voir la déclaration de 'bx::mtxRotateXY'
+  Génération de code en cours...
