@@ -1,9 +1,27 @@
 #include "Window.h"
 
 
-Window::Window() : window(nullptr) {}
+Window::Window() : GLFWWindow(nullptr), width(WNDW_WIDTH), height(WNDW_HEIGHT) {}
 
-Window::~Window() {}
+bool Window::initialize() {
+
+	int isInitGLFW = glfwInit();
+	if (!isInitGLFW) {
+		int code = glfwGetError(NULL);
+		std::cout << "Unable to initinialize GLFW :" << code << std::endl;
+		return false;
+	}
+
+	GLFWWindow = Window::createWindow(width, height);
+	if (!GLFWWindow) {
+		int code = glfwGetError(NULL);
+		std::cout << "Unable to Create Window :" << code << std::endl;
+		return false;
+	}
+
+	return true;
+}
+
 
 GLFWwindow* Window::createWindow(int width, int height) {
 
@@ -26,8 +44,9 @@ GLFWwindow* Window::createWindow(int width, int height) {
 	return window;
 }
 
-void Window::destroyWindow(GLFWwindow* window) {
+void Window::destroy() {
 
-	glfwDestroyWindow(window);
+	glfwDestroyWindow(GLFWWindow);
 
 }
+

@@ -3,19 +3,48 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\Main.cpp" />
     <ClCompile Include="..\..\src\Window.cpp" />
+    <ClCompile Include="..\..\src\SimpleCube.cpp" />
+    <ClCompile Include="..\..\src\Utils.cpp" />
+    <ClCompile Include="..\..\src\Game.cpp" />
+    <ClCompile Include="..\..\src\Actor.cpp" />
+    <ClCompile Include="..\..\src\Component.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\src\fs_cubes.sc" />
-    <None Include="..\..\src\varying.def.sc" />
-    <None Include="..\..\src\vs_cubes.sc" />
+    <None Include="..\..\src\fs_cubes.sc">
+      <Filter>Ressources</Filter>
+    </None>
+    <None Include="..\..\src\varying.def.sc">
+      <Filter>Ressources</Filter>
+    </None>
+    <None Include="..\..\src\vs_cubes.sc">
+      <Filter>Ressources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">
       <UniqueIdentifier>{03a85acc-3492-48ba-98b2-f23d94e3a102}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ressources">
+      <UniqueIdentifier>{75eddf91-97b6-455d-900c-4ecd8072a53e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Window.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\SimpleCube.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Utils.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Game.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Actor.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Component.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
