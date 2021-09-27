@@ -9,6 +9,7 @@
     <ClCompile Include="..\..\src\Actor.cpp" />
     <ClCompile Include="..\..\src\Component.cpp" />
     <ClCompile Include="..\..\src\Time.cpp" />
+    <ClCompile Include="..\..\src\Quaternion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\fs_cubes.sc">
@@ -52,6 +53,12 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Math.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Quaternion.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Matrix.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

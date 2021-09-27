@@ -1,6 +1,9 @@
 #pragma once
 #include "Utils.h"
 #include "Actor.h"
+#include "Time.h"
+#include "Matrix.h"
+#include "Quaternion.h"
 
 class Actor;
 

@@ -5,9 +5,11 @@
 
 Actor::Actor() :
 	state(Actor::ActorState::active),
-	game(Game::instance()) 
+	game(Game::instance()), 
+	isInit(false) 
 {
 	game.addActor(this);
+	isInit = true;
 }
 
 Actor::~Actor() {
