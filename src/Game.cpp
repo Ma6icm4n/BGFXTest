@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "Actor.h"
 #include "SimpleCube.h"
+#include "Roundabout.h"
 
 #include <iostream>
 #include <sstream>
@@ -14,11 +15,9 @@ bool Game::initialize() {
 }
 
 void Game::load(){
-    Actor* aCube = new Actor();
-    SimpleCube* cube = new SimpleCube(aCube);
-    aCube->setPosition(2.0f, 3.0f, 2.0f);
-    aCube->setScale(0.5f, 0.5f, 0.5f);
-    
+
+    roundabout = new Roundabout();
+    roundabout->setPosition(0.0f, 0.0f, 0.0f);
 
     for (auto actor : actors) {
         actor->init();
@@ -30,19 +29,19 @@ void Game::loop(){
     
     while (true) {
 
-
+        float time = Time::getTime();
         const bx::Vec3 at = { 0.0f, 0.0f,  0.0f };
-        const bx::Vec3 eye = { 0.0f, 0.0f, -5.0f };
+        const bx::Vec3 eye = { 0.0f, 20.0f, -20.0f };
         float view[16];
         bx::mtxLookAt(view, eye, at);
         float proj[16];
         bx::mtxProj(proj, 60.0f, float(WNDW_WIDTH) / float(WNDW_HEIGHT), 0.1f, 100.0f, bgfx::getCaps()->homogeneousDepth);
         bgfx::setViewTransform(0, view, proj);
-        float time = Time::getTime();
+        
         
 
         for (auto actor : actors) {
-            actor->setRotation(time *45, time *45, 0.0f);
+            roundabout->setRotation(0.0f, time * 45, 0.0f );
             actor->update();
         }
 

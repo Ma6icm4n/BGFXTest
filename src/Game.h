@@ -36,8 +36,6 @@ public:
 
 private:
 	Game() : isRunning(true), isUpdatingActors(false) {}
-	void update(float dt);
-	void render();
 
 	bool isRunning;
 	Window window;
@@ -46,7 +44,9 @@ private:
 	vector<Actor*> actors;
 	vector<Actor*> waitingActors;
 
-	Actor* cube;
+	Actor* roundabout;
 	float time;
+
+
 
 };

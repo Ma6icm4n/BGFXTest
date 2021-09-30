@@ -28,13 +28,12 @@ public:
 	float* getScale() { return m_scale; }
 	float* getRotation() { return m_rotation; }
 
+protected:
 
-private:
 	float m_position[3] = { 0, 0, 0 };
 	float m_scale[3] = { 1, 1, 1 };
 	float m_rotation[3] = { 0, 0, 0 };
 
-protected:
 	Actor& owner;
 	int updateOrder;
 

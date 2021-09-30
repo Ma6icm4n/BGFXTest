@@ -1,4 +1,5 @@
 #pragma once 
+#include <math.h>
 #include "Math.h"
 #include "Quaternion.h"
 
@@ -45,6 +46,35 @@ namespace Matrix {
 		matrix[13] = 0.0f;
 		matrix[14] = 0.0f;
 		matrix[15] = 1.0f;
+	}
+
+	inline float* ComputePosition(float* center, float* rotation, float* rayon) {
+		float rotationX = Maths::toRadians(rotation[0]);
+		float rotationY = Maths::toRadians(rotation[1]);
+		float rotationZ = Maths::toRadians(rotation[2]);
+
+		float rayonX = rayon[0];
+		float rayonY = rayon[1];
+		float rayonZ = rayon[2];
+
+		float positionY = rayonY * Maths::cos(rotationX) - rayonZ * Maths::sin(rotationX);
+		float positionZ = rayonZ * Maths::cos(rotationX) + rayonY * Maths::sin(rotationX);
+
+		float positionX = rayonX * Maths::cos(rotationY) + positionZ * Maths::sin(rotationY);
+		positionZ = positionZ * Maths::cos(rotationY) - rayonX * Maths::sin(rotationY);
+
+		float tempX = positionX;
+		float tempY = positionY;
+
+		positionX = tempX * Maths::cos(rotationZ) - tempY * Maths::sin(rotationZ);
+		positionY = tempY * Maths::cos(rotationZ) + tempX * Maths::sin(rotationZ);
+
+		positionX += center[0];
+		positionY += center[1];
+		positionZ += center[2];
+
+		float position[3] = { positionX, positionY, positionZ };
+		return position;
 	}
 
 };

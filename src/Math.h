@@ -12,7 +12,7 @@ namespace Maths {
 
 	inline float toRadians(float degrees)
 	{
-		return degrees * pi / 180.0f;
+		return (degrees) * pi / 180.0f;
 	}
 
 	inline float toDegrees(float radians)

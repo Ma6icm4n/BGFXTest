@@ -20,6 +20,7 @@ void SimpleCube::init() {
     bgfx::ShaderHandle vsh = loadShader("vs_cubes.bin");
     bgfx::ShaderHandle fsh = loadShader("fs_cubes.bin");
     m_program = bgfx::createProgram(vsh, fsh, true);
+	Component::init();
 }
 
 void SimpleCube::update() {

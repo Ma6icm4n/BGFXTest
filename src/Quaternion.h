@@ -81,16 +81,18 @@ public:
 	static Quaternion concatenate(const Quaternion& a, Quaternion& b) {
 		Quaternion retVal;
 
-		float newVec[4] = { b.w * a.x + a.w * b.x + a.y * b.z - a.z * b.y,
-							b.w * a.y + a.w * b.y + a.z * b.x - a.x * b.z,
-							b.w * a.z + a.w * a.z + a.x * b.y - a.y * b.x,
-							a.w * b.w - (a.x * b.x + a.y * b.y + a.z * b.z) };
+		float newVec[4] = { b.w * a.x + a.w * b.x + b.y * a.z - b.z * a.y,
+							b.w * a.y + a.w * b.y + b.z * a.x - b.x * a.z,
+							b.w * a.z + a.w * b.z + b.x * a.y - b.y * a.x,
+							a.w * b.w - (a.x * b.x + b.y * a.y + b.z * a.z) };
 		retVal.x = newVec[0];
 		retVal.y = newVec[1];
 		retVal.z = newVec[2];
 		retVal.w = newVec[3];
 
 		return retVal;
+
+		
 	}
 
 	static const Quaternion base;
