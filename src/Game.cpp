@@ -41,7 +41,7 @@ void Game::loop(){
         
 
         for (auto actor : actors) {
-            roundabout->setRotation(0.0f, time * 45, 0.0f );
+            roundabout->setRotation(0.0f, time * 45, Maths::cos(time) *45 );
             actor->update();
         }
 

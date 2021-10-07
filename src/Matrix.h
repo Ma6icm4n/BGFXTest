@@ -69,6 +69,7 @@ namespace Matrix {
 		positionX = tempX * Maths::cos(rotationZ) - tempY * Maths::sin(rotationZ);
 		positionY = tempY * Maths::cos(rotationZ) + tempX * Maths::sin(rotationZ);
 
+
 		positionX += center[0];
 		positionY += center[1];
 		positionZ += center[2];

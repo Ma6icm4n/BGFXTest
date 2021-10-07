@@ -20,9 +20,11 @@ private:
 	Branch* branch1;
 	Branch* branch2;
 	Branch* branch3;
+	Branch* branch4;
 	Branch* hand1;
 	Branch* hand2;
 	Branch* hand3;
+	Branch* hand4;
 	Branch* cup1;
 	Branch* cup2;
 	Branch* cup3;

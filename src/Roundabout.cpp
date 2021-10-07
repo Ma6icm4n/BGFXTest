@@ -18,28 +18,75 @@ void Roundabout::init() {
 	branch1 = new Branch(this);
 	branch1->setPosition(5.0f, 0.0f, 0.0f);
 	branch1->setScale(5.0f, 0.02f, 1.0f);
+
+	branch2 = new Branch(this);
+	branch2->setPosition(-5.0f, 0.0f, 0.0f);
+	branch2->setScale(5.0f, 0.02f, 1.0f);
 	
+	branch3 = new Branch(this);
+	branch3->setPosition(0.0f, 0.0f, 5.0f);
+	branch3->setScale(5.0f, 0.02f, 1.0f);
+	branch3->setRotation(0.0f, 90.0f, 0.0f);
+
+	branch4 = new Branch(this);
+	branch4->setPosition(0.0f, 0.0f, -5.0f);
+	branch4->setScale(5.0f, 0.02f, 1.0f);
+	branch4->setRotation(0.0f, 90.0f, 0.0f);
+
+	hand1 = new Branch(this);
+	hand1->setPosition(10.0f, 0.0f, 0.0f);
+	hand1->setScale(5.0f, 0.05f, .7f);
+	hand1->setRotation(0.0f, 90.0f, 0.0f);
+	
+	hand2 = new Branch(this);
+	hand2->setPosition(-10.0f, 0.0f, 0.0f);
+	hand2->setScale(5.0f, 0.05f, .7f);
+	hand2->setRotation(0.0f, 90.0f, 0.0f);
+	
+	hand3 = new Branch(this);
+	hand3->setPosition(0.0f, 0.0f, 10.0f);
+	hand3->setScale(5.0f, 0.05f, .7f);
+	hand3->setRotation(0.0f, 0.0f, 0.0f);
+	
+	hand4 = new Branch(this);
+	hand4->setPosition(0.0f, 0.0f, -10.0f);
+	hand4->setScale(5.0f, 0.05f, .7f);
+	hand4->setRotation(0.0f, 0.0f, 0.0f);
+
+	cup1 = new Branch(this);
+	cup1->setPosition(10.0f, 1.0f, 5.0f);
+	cup1->setScale(0.7f, 0.7f, 0.7);
+	
+	cup2 = new Branch(this);
+	cup2->setPosition(10.0f, 1.0f, -5.0f);
+	cup2->setScale(0.7f, 0.7f, 0.7);
 
 	Actor::init();
 }
 
 void Roundabout::update() {
+
+	float rayon[3] = { 5.0f, 0.0f, 0.0f };
+	float noyar[3] = { -5.0f, 0.0f, 0.0f };
 	float time = Time::getTime();
+
+	hand1->setRotation(0.0f, time * 65, 0.0f);
+	hand2->setRotation(0.0f, time * 88, 0.0f);
+	hand3->setRotation(0.0f, time * 79, 0.0f);
+	hand4->setRotation(0.0f, time * 150, 0.0f);
+
+	float* hand1Position = hand1->getPosition();
+	float* hand1Rotation = hand1->getRotation();
+
+	float* computedCup1Position = Matrix::ComputePosition(hand1Position, hand1Rotation, rayon);
+	cup1->setRotation(0.0f, -time * 45 *2, 0.0f);
+	cup1->setPosition(computedCup1Position[0], cup1->getPosition()[1], computedCup1Position[2]);
+
+	float* computedCup2Position = Matrix::ComputePosition(hand1Position, hand1Rotation, noyar);
+	cup2->setRotation(0.0f, -time * 45 * 2, 0.0f);
+	cup2->setPosition(computedCup2Position[0], cup2->getPosition()[1], computedCup2Position[2]);
 	
 	
-
-	float rayon[3] = { 2.0f, 0.0f, 2.0f };
-	float rayonNeg[3] = { -1.0f, 0.0f, -1.0f };
-	float rayonBase[3];
-	rayonBase[0]= base->getPosition()[0] - 1.5;
-	rayonBase[1] = base->getPosition()[1] - 0.5;
-	rayonBase[2]= base->getPosition()[2] - 1.5;
-	
-
-
-	/*float* branch1Position = Matrix::ComputePosition(rayonBase, base->getRotation(), rayon);
-	branch1->setPosition(branch1Position[0], branch1Position[1], branch1Position[2]);*/
-	//branch1->setRotation(0.0f, base->getRotation()[1] + 125, Maths::cos(time) * 45);
 	
 
 	Actor::update();
