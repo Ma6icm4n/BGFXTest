@@ -12,6 +12,8 @@
     <ClCompile Include="..\..\src\Quaternion.cpp" />
     <ClCompile Include="..\..\src\Roundabout.cpp" />
     <ClCompile Include="..\..\src\Branch.cpp" />
+    <ClCompile Include="..\..\src\Camera.cpp" />
+    <ClCompile Include="..\..\src\MoveComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\fs_cubes.sc">
@@ -67,6 +69,12 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Branch.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Camera.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\MoveComponent.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

@@ -45,6 +45,7 @@ private:
 	vector<Actor*> waitingActors;
 
 	Actor* roundabout;
+	Actor* camera;
 	float time;
 
 

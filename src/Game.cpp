@@ -2,6 +2,7 @@
 #include "Actor.h"
 #include "SimpleCube.h"
 #include "Roundabout.h"
+#include "Camera.h"
 
 #include <iostream>
 #include <sstream>
@@ -18,6 +19,7 @@ void Game::load(){
 
     roundabout = new Roundabout();
     roundabout->setPosition(0.0f, 0.0f, 0.0f);
+    camera = new Camera();
 
     for (auto actor : actors) {
         actor->init();
@@ -30,15 +32,6 @@ void Game::loop(){
     while (true) {
 
         float time = Time::getTime();
-        const bx::Vec3 at = { 0.0f, 0.0f,  0.0f };
-        const bx::Vec3 eye = { 0.0f, 20.0f, -20.0f };
-        float view[16];
-        bx::mtxLookAt(view, eye, at);
-        float proj[16];
-        bx::mtxProj(proj, 60.0f, float(WNDW_WIDTH) / float(WNDW_HEIGHT), 0.1f, 100.0f, bgfx::getCaps()->homogeneousDepth);
-        bgfx::setViewTransform(0, view, proj);
-        
-        
 
         for (auto actor : actors) {
             roundabout->setRotation(0.0f, time * 45, Maths::cos(time) *45 );

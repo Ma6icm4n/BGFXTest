@@ -13,7 +13,6 @@ Roundabout::~Roundabout() {}
 void Roundabout::init() {
 	base = new SimpleCube(this);
 	base->setPosition(0.0f, 0.0f, 0.0f);
-	
 
 	branch1 = new Branch(this);
 	branch1->setPosition(5.0f, 0.0f, 0.0f);

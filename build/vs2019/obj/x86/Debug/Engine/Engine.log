@@ -1,5 +1,3 @@
-﻿  Roundabout.cpp
-C:\Users\cleme\Documents\GitHub\BGFXTest\src\Roundabout.cpp(58,32): warning C4305: 'argument' : troncation de 'double' à 'float'
-C:\Users\cleme\Documents\GitHub\BGFXTest\src\Roundabout.cpp(62,32): warning C4305: 'argument' : troncation de 'double' à 'float'
-C:\Users\cleme\Documents\GitHub\BGFXTest\src\Matrix.h(78): warning C4172: retourne l'adresse d'une variable locale ou : position temporaire
+﻿  MoveComponent.cpp
+     Création de la bibliothèque bin\x86\Debug\Engine.lib et de l'objet bin\x86\Debug\Engine.exp
   Engine.vcxproj -> C:\Users\cleme\Documents\GitHub\BGFXTest\build\vs2019\bin\x86\Debug\Engine.exe
